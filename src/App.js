@@ -25,11 +25,16 @@ function App() {
     monster.name.toLowerCase().includes(search.toLowerCase())
     )
 
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  }
+
   return (
     <div className="App">
+      <h1>Monster Rolodex</h1>
       <SearchBox 
         placeholder='search monsters'
-        handleChange = {e => setSearch(e.target.value)}
+        handleChange = {handleChange}
       />
       <CardList monsters={filteredMonsters} />
     </div>
